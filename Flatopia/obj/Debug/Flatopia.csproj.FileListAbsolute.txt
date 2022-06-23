@@ -1,0 +1,8 @@
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.csproj.AssemblyReference.cache
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.csproj.SuggestedBindingRedirects.cache
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.csproj.CoreCompileInputs.cache
+C:\Git\Flatopia\Flatopia\bin\Debug\Flatopia.exe.config
+C:\Git\Flatopia\Flatopia\bin\Debug\Flatopia.exe
+C:\Git\Flatopia\Flatopia\bin\Debug\Flatopia.pdb
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.exe
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.pdb
