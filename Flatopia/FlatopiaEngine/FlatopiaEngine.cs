@@ -23,6 +23,10 @@ namespace Flatopia.FlatopiaEngine
         private string Title = "New Game";
         private Canvas Window = null;
         private Thread GameLoopThread = null;
+        public Color BackGroundColour = Color.Green;
+
+
+        private static List<Shape2D> AllShapes = new List<Shape2D>();
 
         public FlatopiaEngine(Vector2 screenDimensions, string title)
         {
@@ -34,16 +38,39 @@ namespace Flatopia.FlatopiaEngine
             Window.Text = title;
             Window.Paint += Renderer;
 
-            OnLoad();
             GameLoopThread = new Thread(GameLoop);
             GameLoopThread.Start();
 
             Application.Run(Window);
         }
+
+        public static void RegisterShape(Shape2D shape)
+        {
+            AllShapes.Add(shape);
+        }
+
+        public static void DeregisterShape(Shape2D shape)
+        {
+            AllShapes.Remove(shape);
+        }
+
         void GameLoop()
         {
+
+            OnLoad();
             while (GameLoopThread.IsAlive)
             {
+                try
+                {
+                    OnDraw();
+                    Window.BeginInvoke((MethodInvoker)delegate { Window.Refresh(); });
+                    OnUpdate();
+                    Thread.Sleep(1);
+                }
+                catch
+                {
+                    Console.WriteLine("Game is Loading...");
+                }
 
             }
         }
@@ -51,9 +78,19 @@ namespace Flatopia.FlatopiaEngine
         private void Renderer(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
+            g.Clear(BackGroundColour);
+
+            foreach(Shape2D shape in AllShapes)
+            {
+                g.FillRectangle(new SolidBrush(Color.Red), shape.Position.X, shape.Position.Y, shape.Scale.X, shape.Scale.Y);
+            }
         }
 
         public abstract void OnLoad();
+
+        public abstract void OnUpdate();
+
+        public abstract void OnDraw();
 
     }
 }
