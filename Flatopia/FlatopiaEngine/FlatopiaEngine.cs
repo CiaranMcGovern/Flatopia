@@ -46,6 +46,8 @@ namespace Flatopia.FlatopiaEngine
 
         private static List<Shape2D> AllShapes = new List<Shape2D>();
         private static List<Sprite2D> AllSprites = new List<Sprite2D>();
+        private static List<Tile2D> AllTiles = new List<Tile2D>();
+
         public FlatopiaEngine(Vector2 screenDimensions, string title)
         {
             Log.Info("Game Startup Beginning");
@@ -83,6 +85,16 @@ namespace Flatopia.FlatopiaEngine
             AllSprites.Remove(sprites);
         }
 
+        public static void RegisterTile(Tile2D tile)
+        {
+            AllTiles.Add(tile);
+        }
+
+        public static void DeregisterTile(Tile2D tile)
+        {
+            AllTiles.Remove(tile);
+        }
+
         void GameLoop()
         {
 
@@ -117,6 +129,10 @@ namespace Flatopia.FlatopiaEngine
             foreach(Sprite2D sprite in AllSprites)
             {
                 g.DrawImage(sprite.Sprite, sprite.Position.X, sprite.Position.Y, sprite.Scale.X, sprite.Scale.Y);
+            }
+            foreach (Tile2D tile in AllTiles)
+            {
+                g.DrawImage(tile.Tile, tile.Position.X, tile.Position.Y, tile.Scale.X, tile.Scale.Y);
             }
         }
 

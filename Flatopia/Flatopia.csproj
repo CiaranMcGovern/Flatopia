@@ -53,6 +53,7 @@
     <Compile Include="FlatopiaEngine\Log.cs" />
     <Compile Include="FlatopiaEngine\Shape2D.cs" />
     <Compile Include="FlatopiaEngine\Sprite2D.cs" />
+    <Compile Include="FlatopiaEngine\Tile2D.cs" />
     <Compile Include="FlatopiaEngine\Vector2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
