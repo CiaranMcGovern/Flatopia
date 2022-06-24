@@ -15,6 +15,24 @@ namespace Flatopia.FlatopiaEngine
         {
             this.DoubleBuffered = true;
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Canvas
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "Canvas";
+            this.Load += new System.EventHandler(this.Canvas_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void Canvas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public abstract class FlatopiaEngine
@@ -27,9 +45,10 @@ namespace Flatopia.FlatopiaEngine
 
 
         private static List<Shape2D> AllShapes = new List<Shape2D>();
-
+        private static List<Sprite2D> AllSprites = new List<Sprite2D>();
         public FlatopiaEngine(Vector2 screenDimensions, string title)
         {
+            Log.Info("Game Startup Beginning");
             this.ScreenDimensions = screenDimensions;
             this.Title = title;
 
@@ -54,6 +73,16 @@ namespace Flatopia.FlatopiaEngine
             AllShapes.Remove(shape);
         }
 
+        public static void RegisterSprite(Sprite2D sprite)
+        {
+            AllSprites.Add(sprite);
+        }
+
+        public static void DeregisterSprite(Sprite2D sprites)
+        {
+            AllSprites.Remove(sprites);
+        }
+
         void GameLoop()
         {
 
@@ -69,7 +98,7 @@ namespace Flatopia.FlatopiaEngine
                 }
                 catch
                 {
-                    Console.WriteLine("Game is Loading...");
+                    Log.Error("Game window not found... Looking Again..");
                 }
 
             }
@@ -83,6 +112,11 @@ namespace Flatopia.FlatopiaEngine
             foreach(Shape2D shape in AllShapes)
             {
                 g.FillRectangle(new SolidBrush(Color.Red), shape.Position.X, shape.Position.Y, shape.Scale.X, shape.Scale.Y);
+            }
+            
+            foreach(Sprite2D sprite in AllSprites)
+            {
+                g.DrawImage(sprite.Sprite, sprite.Position.X, sprite.Position.Y, sprite.Scale.X, sprite.Scale.Y);
             }
         }
 

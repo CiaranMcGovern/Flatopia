@@ -18,11 +18,14 @@ namespace Flatopia.FlatopiaEngine
             this.Scale = Scale;
             this.Tag = Tag;
 
+            Log.Info($"[Shape2D]{Tag} - Has Been Registered");
+
             FlatopiaEngine.RegisterShape(this);
         }
 
         public void DestroySelf()
         {
+            Log.Info($"Shape2D{Tag} - Has Been Deregistered");
             FlatopiaEngine.DeregisterShape(this);
         }
     }

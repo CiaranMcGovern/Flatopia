@@ -10,7 +10,7 @@ namespace Flatopia
 {
     public class Flatopia : FlatopiaEngine.FlatopiaEngine
     {
-        Shape2D Player;
+        Sprite2D Player;
         public Flatopia() : base(new FlatopiaEngine.Vector2(615, 515), "Flatopia")
         {
 
@@ -18,23 +18,17 @@ namespace Flatopia
 
         public override void OnDraw()
         {
-            Console.WriteLine("OnDraw Works");
         }
 
         public override void OnLoad()
         {
             BackGroundColour = Color.Blue;
 
-            Player = new Shape2D(new Vector2(10, 10), new Vector2(10,10), "Player");
+            Player = new Sprite2D(new Vector2(10, 10), new Vector2(43,49), "Hitman 1/hitman1_stand", "Player");
         }
 
-        int frameCount;
-        float x = 0.1f;
         public override void OnUpdate()
         {
-            Console.WriteLine($"Frame Count: {frameCount}");
-            Player.Position.X += x;
-            frameCount++;
         }
     }
 }
