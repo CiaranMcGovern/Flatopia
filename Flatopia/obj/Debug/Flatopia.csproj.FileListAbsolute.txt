@@ -1,10 +1,12 @@
-C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.csproj.AssemblyReference.cache
-C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.csproj.SuggestedBindingRedirects.cache
-C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.csproj.CoreCompileInputs.cache
 C:\Git\Flatopia\Flatopia\bin\Debug\Flatopia.exe.config
 C:\Git\Flatopia\Flatopia\bin\Debug\Flatopia.exe
 C:\Git\Flatopia\Flatopia\bin\Debug\Flatopia.pdb
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.csproj.AssemblyReference.cache
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.csproj.SuggestedBindingRedirects.cache
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.GameScreen.resources
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.Menu.resources
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.Properties.Resources.resources
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.csproj.GenerateResource.cache
+C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.csproj.CoreCompileInputs.cache
 C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.exe
 C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.pdb
-C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.FlatopiaEngine.Canvas.resources
-C:\Git\Flatopia\Flatopia\obj\Debug\Flatopia.csproj.GenerateResource.cache
