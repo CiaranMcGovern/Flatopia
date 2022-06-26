@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FlatopiaClasses\Tile2D.cs" />
+    <Compile Include="FlatopiaClasses\Vector2.cs" />
     <Compile Include="GameScreen.cs">
       <SubType>Form</SubType>
     </Compile>

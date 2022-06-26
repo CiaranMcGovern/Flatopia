@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flatopia.FlatopiaClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace Flatopia
     public partial class GameScreen : Form
     {
         Graphics g;
+        private List<Tile2D> AllTiles = new List<Tile2D>();
         public GameScreen()
         {
             InitializeComponent();
@@ -20,6 +22,7 @@ namespace Flatopia
 
         private void GameScreen_Load(object sender, EventArgs e)
         {
+            ParseMapFile();
             GameClock.Start();
             g = GameBoard.CreateGraphics();
         }
@@ -36,23 +39,28 @@ namespace Flatopia
 
         private void GameClock_Tick(object sender, EventArgs e)
         {
-            RenderGrid();
+            RenderTiles();
             GameClock.Stop();
         }
 
-
-        private void RenderGrid()
+        private void ParseMapFile()
         {
-            float TileWidth = GameBoard.Width/100;
-            float TileHeight = GameBoard.Height/100;
-
-            for (int i = 0; i < 100; i++)
+            float BoardWidth = GameBoard.Width;
+            float BoardHeight = GameBoard.Height;
+            for(int i = 0; i < 50; i++)
             {
-                int currentTileHeight = (int)(i * TileHeight);
-                for (int j = 0; j < 100; j++)
+                for(int j=0; j < 50; j++)
                 {
-                    g.DrawRectangle(new Pen(Color.Red), new Rectangle((int)(j*TileWidth), currentTileHeight, (int)TileWidth, (int)TileHeight));
-                }
+                    AllTiles.Add(new Tile2D(new Vector2(j * BoardWidth / 50, i* BoardHeight / 50), new Vector2(BoardWidth / 50, BoardHeight/50), "Tiles/tile_01", "Grass"));
+                }                
+            }
+
+        }
+        private void RenderTiles()
+        {
+            foreach(Tile2D tile in AllTiles)
+            {
+                g.DrawImage(tile.Tile, tile.Position.X, tile.Position.Y, tile.Scale.X, tile.Scale.Y);
             }
         }
     }
